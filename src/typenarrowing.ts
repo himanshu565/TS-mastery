@@ -35,3 +35,50 @@ function serve(chai: KulhadChai | Cutting){
     }
 
 }   
+type masalachai = {
+    type: "masala",
+    spicelevel :number
+};
+type gingerchai= {
+    type: "ginger",
+    aroma: number
+};
+type kadakchai ={
+    type: "kadak",
+    sugar: number
+};
+
+type chai = masalachai | kadakchai | gingerchai ;
+function MakeChai(order: chai){
+    switch (order.type) {
+        case "masala":
+            return `you ordered masala chai`
+            break;
+        case "kadak":
+            return  `you ordered kadak chai`
+            break;
+    
+        case "ginger":
+            return `you order ginger chai`
+            break;
+    }
+// in this we are narrowing the type of orders by defining the type of chai.
+}
+
+function brew(order:masalachai | Cutting){
+    if("spicelevel" in order)
+        return `its masala chai`;
+ } // this type of ex. we are checking if spicelevel is present in the object order.
+
+ function isStringArray(arr : unknown) : arrstring[]{
+    // `lala`;
+// when using unknown the returning type should be mentioned when using it .
+// in case of any its not necessary to mention the returning type.
+ }
+ type book = {
+    name: string,
+ }
+ let bookstring = '{"name": "The Great Gatsby"}'
+ let bookobject = JSON.parse(bookstring) as book;
+ console.log(bookobject);
+ // by defining the type of bookobject as book we are narrowing the type of bookobject to be of type book.
